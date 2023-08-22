@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class AppBancaireApplication implements CommandLineRunner {
@@ -37,11 +38,15 @@ public class AppBancaireApplication implements CommandLineRunner {
 		user.setPassword(new BCryptPasswordEncoder().encode("imad"));
 		user.setRole(ERole.ADMIN.toString());
 
-		userService.AddUser(user);
+		//userService.AddUser(user);
 
 
 	//	iClientService.addClient(client);
 
+	}
+	@Bean
+	public RestTemplate restTemplate(){
+		return  new RestTemplate();
 	}
 
 }

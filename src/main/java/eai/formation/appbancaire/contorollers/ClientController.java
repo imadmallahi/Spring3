@@ -23,27 +23,32 @@ public class ClientController {
     }
 
 
-    @PreAuthorize("hasRole('SCOPE_ROLE_ADMIN')")
+ //   @PreAuthorize("hasRole('SCOPE_ROLE_ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<?> addClient(@Valid @RequestBody Client client){
         return ResponseEntity.ok(serviceClient.addClient(client));
     }
 
-    @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
+//    @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     @GetMapping("/get")
     public ResponseEntity<?> getClient(@Valid @RequestParam UUID id){
         return ResponseEntity.ok(serviceClient.getClientById(id));
     }
 
-    @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
+  //  @PreAuthorize("hasAuthority('SCOPE_ROLE_ADMIN')")
     @GetMapping("/all")
     public ResponseEntity<?> getClients(){
         return ResponseEntity.ok(serviceClient.getClients());
     }
 
+    /**
+     *
+     * @param auth
+     * @return
+
     @GetMapping("/profiles")
     public Authentication profil(Authentication auth){
         return  auth;
     }
-
+     */
 }
